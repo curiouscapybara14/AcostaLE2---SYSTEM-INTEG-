@@ -1,0 +1,12 @@
+/Users/nicole/code/AcostaLE2/BlogDataLibrary/bin/Debug/net6.0/BlogDataLibrary.deps.json
+/Users/nicole/code/AcostaLE2/BlogDataLibrary/bin/Debug/net6.0/BlogDataLibrary.dll
+/Users/nicole/code/AcostaLE2/BlogDataLibrary/bin/Debug/net6.0/BlogDataLibrary.pdb
+/Users/nicole/code/AcostaLE2/BlogDataLibrary/obj/Debug/net6.0/BlogDataLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nicole/code/AcostaLE2/BlogDataLibrary/obj/Debug/net6.0/BlogDataLibrary.AssemblyInfoInputs.cache
+/Users/nicole/code/AcostaLE2/BlogDataLibrary/obj/Debug/net6.0/BlogDataLibrary.AssemblyInfo.cs
+/Users/nicole/code/AcostaLE2/BlogDataLibrary/obj/Debug/net6.0/BlogDataLibrary.csproj.CoreCompileInputs.cache
+/Users/nicole/code/AcostaLE2/BlogDataLibrary/obj/Debug/net6.0/BlogDataLibrary.dll
+/Users/nicole/code/AcostaLE2/BlogDataLibrary/obj/Debug/net6.0/refint/BlogDataLibrary.dll
+/Users/nicole/code/AcostaLE2/BlogDataLibrary/obj/Debug/net6.0/BlogDataLibrary.pdb
+/Users/nicole/code/AcostaLE2/BlogDataLibrary/obj/Debug/net6.0/ref/BlogDataLibrary.dll
+/Users/nicole/code/AcostaLE2/BlogDataLibrary/obj/Debug/net6.0/BlogDataLibrary.csproj.AssemblyReference.cache

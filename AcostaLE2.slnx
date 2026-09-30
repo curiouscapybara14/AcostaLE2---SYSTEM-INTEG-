@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="AcostaBlogDB/AcostaBlogDB.sqlproj" Type="42ea0dbd-9cf1-443e-919e-be9c484e4577" />
+  <Project Path="BlogDataLibrary/BlogDataLibrary.csproj" />
+  <Project Path="BlogTestUI/BlogTestUI.csproj" />
+</Solution>

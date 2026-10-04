@@ -1,73 +1,39 @@
-using Dapper;
-using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using Dapper;
+using Microsoft.Extensions.Configuration;
 
-namespace BlogDataLibrary.Database
+namespace BlogDataLibrary.Database;
+
+public class SqlDataAccess : ISqlDataAccess
 {
-    public class SqlDataAccess : ISqlDataAccess
+    private readonly IConfiguration _config;
+
+    public SqlDataAccess(IConfiguration config)
     {
-        private IConfiguration _config;
+        _config = config;
+    }
 
-        public SqlDataAccess(IConfiguration config)
+    public List<T> LoadData<T, U>(string sqlStatement, U parameters, string connectionStringName, bool isStoredProcedure)
+    {
+        string connectionString = _config.GetConnectionString(connectionStringName);
+        CommandType commandType = isStoredProcedure ? CommandType.StoredProcedure : CommandType.Text;
+
+        using (IDbConnection connection = new SqlConnection(connectionString))
         {
-            _config = config;
+            List<T> rows = connection.Query<T>(sqlStatement, parameters, commandType: commandType).ToList();
+            return rows;
         }
+    }
 
-        public List<T> LoadData<T, U>(
-            string sqlStatement,
-            U parameters,
-            string connectionStringName,
-            bool isStoredProcedure)
+    public void SaveData<T>(string sqlStatement, T parameters, string connectionStringName, bool isStoredProcedure)
+    {
+        string connectionString = _config.GetConnectionString(connectionStringName);
+        CommandType commandType = isStoredProcedure ? CommandType.StoredProcedure : CommandType.Text;
+
+        using (IDbConnection connection = new SqlConnection(connectionString))
         {
-            CommandType commandType = CommandType.Text;
-
-            string connectionString =
-                _config.GetConnectionString(connectionStringName);
-
-            if (isStoredProcedure)
-            {
-                commandType = CommandType.StoredProcedure;
-            }
-
-            using (IDbConnection connection =
-                   new SqlConnection(connectionString))
-            {
-                List<T> rows = connection
-                    .Query<T>(
-                        sqlStatement,
-                        parameters,
-                        commandType: commandType)
-                    .ToList();
-
-                return rows;
-            }
-        }
-
-        public void SaveData<T>(
-            string sqlStatement,
-            T parameters,
-            string connectionStringName,
-            bool isStoredProcedure)
-        {
-            string connectionString =
-                _config.GetConnectionString(connectionStringName);
-
-            CommandType commandType = CommandType.Text;
-
-            if (isStoredProcedure)
-            {
-                commandType = CommandType.StoredProcedure;
-            }
-
-            using (IDbConnection connection =
-                   new SqlConnection(connectionString))
-            {
-                connection.Execute(
-                    sqlStatement,
-                    parameters,
-                    commandType: commandType);
-            }
+            connection.Execute(sqlStatement, parameters, commandType: commandType);
         }
     }
 }

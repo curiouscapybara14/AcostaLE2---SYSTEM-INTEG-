@@ -5,6 +5,5 @@ CREATE TABLE [dbo].[Users]
     [FirstName] NVARCHAR(50) NOT NULL,
     [LastName] NVARCHAR(50) NOT NULL,
     [Password] NVARCHAR(16) NOT NULL,
-
     CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
 );
